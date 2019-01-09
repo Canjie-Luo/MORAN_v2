@@ -40,7 +40,7 @@ Use [pip](https://pypi.org/project/pip/) to install the following libraries.
 ## Data Preparation
 Please convert your own dataset to **LMDB** format by using the [tool](https://github.com/bgshih/crnn/blob/master/tool/create_dataset.py) provided by [@Baoguang Shi](https://github.com/bgshih). 
 
-You can also download the training ([NIPS 2014](http://www.robots.ox.ac.uk/~vgg/data/scenetext/), [CVPR 2016](http://www.robots.ox.ac.uk/~vgg/data/scenetext/)) and testing datasets prepared by us. 
+You can also download the training ([NIPS 2014](http://www.robots.ox.ac.uk/~vgg/data/text/), [CVPR 2016](http://www.robots.ox.ac.uk/~vgg/data/scenetext/)) and testing datasets prepared by us. 
 
 - [about 20G training datasets and testing datasets in **LMDB** format](https://pan.baidu.com/s/1TqZfvoEhyv57yf4YBjSzFg), password: l8em
 

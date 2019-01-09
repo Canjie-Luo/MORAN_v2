@@ -14,7 +14,7 @@ MORAN is a network with rectification mechanism for general scene text recogniti
 
 | <center>Dataset</center> | <center>IIIT5K</center> | <center>SVT</center> | <center>IC03</center> | <center>IC13</center> | <center>SVT-P</center> | <center>CUTE80</center> | <center>IC15 (1811)</center> | <center>IC15 (2077)</center> |
 | :---: | :---: | :---: | :---:| :---:| :---:| :---:| :---:| :---:|
-| MORAN v1 (two-stage training) | <center>91.2</center> | <center>**88.3**</center> | <center>**95.0**</center> | <center>92.4</center> | <center>76.1</center> | <center>77.4</center> | <center>74.7</center> | <center>68.8</center> |
+| MORAN v1 (curriculum training) | <center>91.2</center> | <center>**88.3**</center> | <center>**95.0**</center> | <center>92.4</center> | <center>76.1</center> | <center>77.4</center> | <center>74.7</center> | <center>68.8</center> |
 | <center>MORAN v2 (one-stage training)</center> | <center>**93.4**</center> | <center>**88.3**</center> | <center>94.2</center> | <center>**93.2**</center> | <center>**79.7**</center> | <center>**81.9**</center> | <center>**77.8**</center> | <center>**73.9**</center> |
 
 ## Requirements
@@ -68,7 +68,7 @@ Download the model parameter file from the link above and put the `demo.pth` int
 ```
 @article{cluo2019moran,
   author  = {Canjie Luo, Lianwen Jin, Zenghui Sun},
-  title   = {MORAN: A Multi-Object Rectified Attention network for Scene Text Recognition},
+  title   = {MORAN: A Multi-Object Rectified Attention Network for Scene Text Recognition},
   journal = {Pattern Recognition}, 
   volume  = {}, 
   number  = {}, 

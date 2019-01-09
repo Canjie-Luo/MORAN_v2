@@ -38,9 +38,13 @@ Use [pip](https://pypi.org/project/pip/) to install the following libraries.
 - [matplotlib](https://pypi.org/project/matplotlib/)
 
 ## Data Preparation
-Please convert your own dataset to lmdb format by using the [tool](https://github.com/bgshih/crnn/blob/master/tool/create_dataset.py) provided by [@Baoguang Shi](https://github.com/bgshih). You can also download the training ([NIPS 2014](http://www.robots.ox.ac.uk/~vgg/data/scenetext/), [CVPR 2016](http://www.robots.ox.ac.uk/~vgg/data/scenetext/)) and testing datasets prepared by us. The raw pictures of testing datasets can be found [here](https://github.com/chengzhanzhan/STR).
+Please convert your own dataset to lmdb format by using the [tool](https://github.com/bgshih/crnn/blob/master/tool/create_dataset.py) provided by [@Baoguang Shi](https://github.com/bgshih). 
+
+You can also download the training ([NIPS 2014](http://www.robots.ox.ac.uk/~vgg/data/scenetext/), [CVPR 2016](http://www.robots.ox.ac.uk/~vgg/data/scenetext/)) and testing datasets prepared by us. 
 
 - [about 20G training datasets and testing datasets](https://pan.baidu.com/s/1TqZfvoEhyv57yf4YBjSzFg), password: l8em
+
+The raw pictures of testing datasets can be found [here](https://github.com/chengzhanzhan/STR).
 
 ## Training and Testing
 

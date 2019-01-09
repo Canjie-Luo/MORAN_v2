@@ -17,7 +17,7 @@ MORAN is a network with rectification mechanism for general scene text recogniti
 | MORAN v1 (curriculum training)\* | <center>91.2</center> | <center>**88.3**</center> | <center>**95.0**</center> | <center>92.4</center> | <center>76.1</center> | <center>77.4</center> | <center>74.7</center> | <center>68.8</center> |
 | <center>MORAN v2 (one-stage training)</center> | <center>**93.4**</center> | <center>**88.3**</center> | <center>94.2</center> | <center>**93.2**</center> | <center>**79.7**</center> | <center>**81.9**</center> | <center>**77.8**</center> | <center>**73.9**</center> |
 
-\*The results of v1 were reported in our paper. If this project is helpful for your research, please [cite](https://github.com/Canjie-Luo/MORAN_v2/edit/master/README.md##Citation) our Pattern Recognition paper.
+\*The results of v1 were reported in our paper. If this project is helpful for your research, please [cite](https://github.com/Canjie-Luo/MORAN_v2/blob/master/README.md#citation) our Pattern Recognition paper.
 
 ## Requirements
 

@@ -4,7 +4,7 @@
 
 MORAN is a network with rectification mechanism for general scene text recognition. The paper in [arXiv]() version is available now. 
 
-![](demo/MORAN_v2.gif)
+<div align=center>![](demo/MORAN_v2.gif)
 
 ## Improvements of MORAN v2:
 

@@ -23,6 +23,7 @@ MORAN is a network with rectification mechanism for general scene text recogniti
 - [TorchVision](https://pypi.org/project/torchvision/)
 - [Python](https://www.python.org/) 2.7.*
 - [OpenCV](https://opencv.org/) 2.4.*
+- [PIL (Pillow)](https://pillow.readthedocs.io/en/stable/#)
 
 Use [pip](https://pypi.org/project/pip/) to install the following libraries.
 

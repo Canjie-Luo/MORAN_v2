@@ -122,7 +122,7 @@ class MORN(nn.Module):
                 if len(img_processed.shape) == 2:
                     img_processed = cv2.merge([img_processed.copy()]*3)
 
-                total_img = np.ones([self.targetH, self.targetW*3+10, 3], dtype=int)
+                total_img = np.ones([self.targetH, self.targetW*3+10, 3], dtype=int)*255
                 total_img[0:self.targetH, 0:self.targetW] = img
                 total_img[0:self.targetH, self.targetW+5:2*self.targetW+5] = img_copy
                 total_img[0:self.targetH, self.targetW*2+10:3*self.targetW+10] = img_processed

@@ -1,6 +1,6 @@
 # MORAN: A Multi-Object Rectified Attention Network for Scene Text Recognition
 
-![](https://img.shields.io/badge/version-v2-orange.svg)
+![](https://img.shields.io/badge/version-v2-brightgreen.svg)
 
 MORAN is a network with rectification mechanism for general scene text recognition. The paper (accepted by **the journal of Pattern Recognition**) in [arXiv]() version is available now. 
 

@@ -70,6 +70,8 @@ Download the model parameter file `demo.pth` from the link above and put it into
 	python demo.py
 ``` 
 
+![](demo/demo.png)
+
 ## Citation
 
 ```

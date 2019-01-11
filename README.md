@@ -64,7 +64,7 @@ And start training: (manually decrease the learning rate for your task)
 
 ## Demo
 
-Download the model parameter file `demo.pth` from the link above and put it into root folder. Then, execute the `demo.py` for more visualizations.
+Download the model parameter file `demo.pth` from the [link](https://pan.baidu.com/s/1TqZfvoEhyv57yf4YBjSzFg) (password: l8em) and put it into root folder. Then, execute the `demo.py` for more visualizations.
 
 ```bash
 	python demo.py

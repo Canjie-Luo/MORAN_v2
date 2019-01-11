@@ -88,3 +88,6 @@ Download the model parameter file `demo.pth` from the link above and put it into
 
 ## Acknowledgment
 The repo is developed based on [@Jieru Mei's](https://github.com/meijieru) [crnn.pytorch](https://github.com/meijieru/crnn.pytorch) and [@marvis'](https://github.com/marvis) [ocr_attention](https://github.com/marvis/ocr_attention). Thanks for your contribution.
+
+## Attention
+The project is only free for academic research purposes.

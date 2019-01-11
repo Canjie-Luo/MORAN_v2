@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/version-v2-brightgreen.svg)
 
-MORAN is a network with rectification mechanism for general scene text recognition. The paper (accepted by **the journal of Pattern Recognition**) in [arXiv]() version is available now. 
+MORAN is a network with rectification mechanism for general scene text recognition. The paper (accepted by **the journal of Pattern Recognition**) in [arXiv](https://arxiv.org/abs/1901.03003) version is available now. 
 
 ![](demo/MORAN_v2.gif)
 

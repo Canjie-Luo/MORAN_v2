@@ -4,7 +4,7 @@ from torch.autograd import Variable
 import numpy as np
 
 class MORN(nn.Module):
-    def __init__(self, nc, targetH, targetW, inputDataType='torch.cuda.FloatTensor', maxBatch=256):
+    def __init__(self, nc, targetH, targetW, inputDataType='torch.FloatTensor', maxBatch=256):
         super(MORN, self).__init__()
         self.targetH = targetH
         self.targetW = targetW
@@ -34,7 +34,7 @@ class MORN(nn.Module):
         grid = np.transpose(grid, (1, 0, 2))
         grid = np.expand_dims(grid, 0)
         grid = np.tile(grid, [maxBatch, 1, 1, 1])
-        grid = torch.from_numpy(grid).type(self.inputDataType).cuda()
+        grid = torch.from_numpy(grid).type(self.inputDataType)
         self.grid = Variable(grid, requires_grad=False)
         self.grid_x = self.grid[:, :, :, 0].unsqueeze(3)
         self.grid_y = self.grid[:, :, :, 1].unsqueeze(3)
@@ -80,7 +80,7 @@ class MORN(nn.Module):
             offsets_mean = torch.mean(offsets_grid.view(x.size(0), -1), 1)
             offsets_max, _ = torch.max(offsets_grid.view(x.size(0), -1), 1)
             offsets_min, _ = torch.min(offsets_grid.view(x.size(0), -1), 1)
-
+            
             import matplotlib.pyplot as plt
             from colour import Color
             from torchvision import transforms

@@ -5,7 +5,6 @@ import torch.nn.functional as F
 from torch.autograd import Variable
 from torch.nn.parameter import Parameter
 import torchvision
-from models.fracPickup import fracPickup
 import numpy.random as npr
 
 class BidirectionalLSTM(nn.Module):
@@ -36,9 +35,9 @@ class AttentionCell(nn.Module):
         self.hidden_size = hidden_size
         self.input_size = input_size
         self.num_embeddings = num_embeddings
-        self.fracPickup = fracPickup()
 
     def forward(self, prev_hidden, feats, cur_embeddings, test=False):
+        assert test
         nT = feats.size(0)
         nB = feats.size(1)
         nC = feats.size(2)
@@ -50,22 +49,12 @@ class AttentionCell(nn.Module):
         emition = self.score(F.tanh(feats_proj + prev_hidden_proj).view(-1, hidden_size)).view(nT,nB).transpose(0,1)
 
         alpha = F.softmax(emition, 1) # nB * nT
-
-        if not test:
-            alpha_fp = self.fracPickup(alpha.unsqueeze(1).unsqueeze(2)).squeeze()
-            context = (feats * alpha_fp.transpose(0,1).contiguous().view(nT,nB,1).expand(nT, nB, nC)).sum(0).squeeze(0) # nB * nC
-            if len(context.size()) == 1:
-                context = context.unsqueeze(0)
-            context = torch.cat([context, cur_embeddings], 1)
-            cur_hidden = self.rnn(context, prev_hidden)
-            return cur_hidden, alpha_fp
-        else:
-            context = (feats * alpha.transpose(0,1).contiguous().view(nT,nB,1).expand(nT, nB, nC)).sum(0).squeeze(0) # nB * nC
-            if len(context.size()) == 1:
-                context = context.unsqueeze(0)
-            context = torch.cat([context, cur_embeddings], 1)
-            cur_hidden = self.rnn(context, prev_hidden)
-            return cur_hidden, alpha
+        context = (feats * alpha.transpose(0,1).contiguous().view(nT,nB,1).expand(nT, nB, nC)).sum(0).squeeze(0) # nB * nC
+        if len(context.size()) == 1:
+            context = context.unsqueeze(0)
+        context = torch.cat([context, cur_embeddings], 1)
+        cur_hidden = self.rnn(context, prev_hidden)
+        return cur_hidden, alpha
 
 class Attention(nn.Module):
     def __init__(self, input_size, hidden_size, num_classes, num_embeddings=128):
@@ -93,7 +82,7 @@ class Attention(nn.Module):
 
             num_steps = text_length.data.max()
             num_labels = text_length.data.sum()
-            targets = torch.zeros(nB, num_steps+1).long().cuda()
+            targets = torch.zeros(nB, num_steps+1).long()
             start_id = 0
             for i in range(nB):
                 targets[i][1:1+text_length.data[i]] = text.data[start_id:start_id+text_length.data[i]]+1
@@ -139,8 +128,8 @@ class Attention(nn.Module):
 
             hidden = Variable(torch.zeros(nB,hidden_size).type_as(feats.data))
 
-            targets_temp = Variable(torch.zeros(nB).long().cuda().contiguous())
-            probs = Variable(torch.zeros(nB*num_steps, self.num_classes).cuda())
+            targets_temp = Variable(torch.zeros(nB).long().contiguous())
+            probs = Variable(torch.zeros(nB*num_steps, self.num_classes))
 
             for i in range(num_steps):
                 cur_embeddings = self.char_embeddings.index_select(0, targets_temp)

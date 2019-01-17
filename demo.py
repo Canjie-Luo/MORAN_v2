@@ -6,18 +6,15 @@ from PIL import Image
 from collections import OrderedDict
 import cv2
 from models.moran import MORAN
-
+import pdb
 model_path = './demo.pth'
 img_path = './demo/0.png'
 alphabet = '0:1:2:3:4:5:6:7:8:9:a:b:c:d:e:f:g:h:i:j:k:l:m:n:o:p:q:r:s:t:u:v:w:x:y:z:$'
 
 MORAN = MORAN(1, len(alphabet.split(':')), 256, 32, 100, BidirDecoder=True)
 
-if torch.cuda.is_available():
-    MORAN = MORAN.cuda()
-
 print('loading pretrained model from %s' % model_path)
-state_dict = torch.load(model_path)
+state_dict = torch.load(model_path,map_location='cpu')
 MORAN_state_dict_rename = OrderedDict()
 for k, v in state_dict.items():
     name = k.replace("module.", "") # remove `module.`
@@ -33,8 +30,7 @@ transformer = dataset.resizeNormalize((100, 32))
 image = Image.open(img_path).convert('L')
 image = transformer(image)
 
-if torch.cuda.is_available():
-    image = image.cuda()
+
 image = image.view(1, *image.size())
 image = Variable(image)
 text = torch.LongTensor(1 * 5)

@@ -2,5 +2,6 @@ Colour
 LMDB
 matplotlib
 opencv-python
-torch
+https://download.pytorch.org/whl/cpu/torch-0.3.1-cp36-cp36m-linux_x86_64.whl; python_version >= '3.0'
+https://download.pytorch.org/whl/cpu/torch-0.3.1-cp27-cp27m-linux_x86_64.whl; python_version < '3.0'
 torchvision

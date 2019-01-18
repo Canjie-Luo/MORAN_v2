@@ -10,7 +10,7 @@ MORAN is a network with rectification mechanism for general scene text recogniti
 
 ## Recent Update
 
-- Support [Python3](https://www.python.org/).
+- Support [Python 3](https://www.python.org/).
 
 ## Improvements of MORAN v2:
 
@@ -31,7 +31,7 @@ MORAN is a network with rectification mechanism for general scene text recogniti
 
 We recommend you to use [Anaconda](https://www.anaconda.com/) to manage your libraries.
 
-- [Python2 or Python3](https://www.python.org/) (Python3 is faster than Python2)
+- [Python 2.7 or Python 3.6](https://www.python.org/) (Python 3 is faster than Python 2)
 - [PyTorch](https://pytorch.org/) 0.3.*
 - [TorchVision](https://pypi.org/project/torchvision/)
 - [OpenCV](https://opencv.org/)

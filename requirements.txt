@@ -2,5 +2,5 @@ Colour
 LMDB
 matplotlib
 opencv-python
-torch
+torch=0.3.1
 torchvision

@@ -14,11 +14,7 @@ before_script:
   # exit-zero treats all errors as warnings.  The GitHub editor is 127 chars wide
   - flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 script:
-  - true  # what do we do next?
-  #- sh train_MORAN.sh
-  # put the demo files in place
-  # and the run the demo
-  # - python demo.py
+  - python test.py
 notifications:
   on_success: change
   on_failure: change  # `always` will be the setting once code changes slow down

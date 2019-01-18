@@ -23,6 +23,8 @@ MORAN is a network with rectification mechanism for general scene text recogniti
 
 ## Requirements
 
+(Welcome to develop MORAN together.)
+
 - [PyTorch](https://pytorch.org/) 0.3.*
 - [TorchVision](https://pypi.org/project/torchvision/)
 - [Python](https://www.python.org/) 2.7.*

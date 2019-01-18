@@ -1,5 +1,6 @@
 Colour
 LMDB
 matplotlib
+opencv-python
 torch
 torchvision

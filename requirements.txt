@@ -1,6 +1,7 @@
 Colour
 LMDB
 matplotlib
+Pillow
 opencv-python
 torch==0.3.1
 torchvision

@@ -10,6 +10,8 @@ MORAN is a network with rectification mechanism for general scene text recogniti
 
 ## Recent Update
 
+Thanks the great help from [@Christian Clauss](https://github.com/cclauss)!
+
 - Support [Python 3](https://www.python.org/).
 
 ## Improvements of MORAN v2:

@@ -12,8 +12,6 @@ import tools.utils as utils
 import tools.dataset as dataset
 import time
 from collections import OrderedDict
-from torchvision import transforms
-import cv2
 from models.moran import MORAN
 
 parser = argparse.ArgumentParser()

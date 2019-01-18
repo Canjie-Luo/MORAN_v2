@@ -11,13 +11,19 @@ model_path = './demo.pth'
 img_path = './demo/0.png'
 alphabet = '0:1:2:3:4:5:6:7:8:9:a:b:c:d:e:f:g:h:i:j:k:l:m:n:o:p:q:r:s:t:u:v:w:x:y:z:$'
 
-MORAN = MORAN(1, len(alphabet.split(':')), 256, 32, 100, BidirDecoder=True)
-
+cuda_flag = False
 if torch.cuda.is_available():
-    MORAN = MORAN.cuda()
+	cuda_flag = True
+	MORAN = MORAN(1, len(alphabet.split(':')), 256, 32, 100, BidirDecoder=True, CUDA=cuda_flag)
+	MORAN = MORAN.cuda()
+else:
+	MORAN = MORAN(1, len(alphabet.split(':')), 256, 32, 100, BidirDecoder=True, inputDataType='torch.FloatTensor', CUDA=cuda_flag)
 
 print('loading pretrained model from %s' % model_path)
-state_dict = torch.load(model_path)
+if cuda_flag:
+	state_dict = torch.load(model_path)
+else:
+	state_dict = torch.load(model_path, map_location='cpu')
 MORAN_state_dict_rename = OrderedDict()
 for k, v in state_dict.items():
     name = k.replace("module.", "") # remove `module.`
@@ -33,7 +39,7 @@ transformer = dataset.resizeNormalize((100, 32))
 image = Image.open(img_path).convert('L')
 image = transformer(image)
 
-if torch.cuda.is_available():
+if cuda_flag:
     image = image.cuda()
 image = image.view(1, *image.size())
 image = Variable(image)

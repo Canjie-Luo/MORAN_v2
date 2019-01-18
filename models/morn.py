@@ -4,12 +4,13 @@ from torch.autograd import Variable
 import numpy as np
 
 class MORN(nn.Module):
-    def __init__(self, nc, targetH, targetW, inputDataType='torch.cuda.FloatTensor', maxBatch=256):
+    def __init__(self, nc, targetH, targetW, inputDataType='torch.cuda.FloatTensor', maxBatch=256, CUDA=True):
         super(MORN, self).__init__()
         self.targetH = targetH
         self.targetW = targetW
         self.inputDataType = inputDataType
         self.maxBatch = maxBatch
+        self.cuda = CUDA
 
         self.cnn = nn.Sequential(
             nn.MaxPool2d(2, 2), 
@@ -34,7 +35,10 @@ class MORN(nn.Module):
         grid = np.transpose(grid, (1, 0, 2))
         grid = np.expand_dims(grid, 0)
         grid = np.tile(grid, [maxBatch, 1, 1, 1])
-        grid = torch.from_numpy(grid).type(self.inputDataType).cuda()
+        grid = torch.from_numpy(grid).type(self.inputDataType)
+        if self.cuda:
+            grid = grid.cuda()
+            
         self.grid = Variable(grid, requires_grad=False)
         self.grid_x = self.grid[:, :, :, 0].unsqueeze(3)
         self.grid_y = self.grid[:, :, :, 1].unsqueeze(3)

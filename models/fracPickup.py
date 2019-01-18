@@ -6,9 +6,9 @@ import numpy.random as npr
 
 class fracPickup(nn.Module):
 
-    def __init__(self, ):
+    def __init__(self, CUDA=True):
         super(fracPickup, self).__init__()
-
+        self.cuda = CUDA
 
     def forward(self, x):
         x_shape = x.size()
@@ -38,7 +38,9 @@ class fracPickup(nn.Module):
         grid = np.transpose(grid, (1, 0, 2))
         grid = np.expand_dims(grid, 0)
         grid = np.tile(grid, [x_shape[0], 1, 1, 1])
-        grid = torch.from_numpy(grid).type(x.data.type()).cuda()
+        grid = torch.from_numpy(grid).type(x.data.type())
+        if self.cuda:
+            grid = grid.cuda()
         self.grid = Variable(grid, requires_grad=False)
 
         x_offset = nn.functional.grid_sample(x, self.grid)

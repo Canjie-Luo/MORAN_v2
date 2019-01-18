@@ -57,6 +57,9 @@ torch.manual_seed(opt.manualSeed)
 
 cudnn.benchmark = True
 
+if not torch.cuda.is_available():
+    assert not opt.cuda, 'You don\'t have a CUDA device.'
+
 if torch.cuda.is_available() and not opt.cuda:
     print("WARNING: You have a CUDA device, so you should probably run with --cuda")
 
@@ -83,11 +86,17 @@ nc = 1
 converter = utils.strLabelConverterForAttention(opt.alphabet, opt.sep)
 criterion = torch.nn.CrossEntropyLoss()
 
-MORAN = MORAN(nc, nclass, opt.nh, opt.targetH, opt.targetW, BidirDecoder=opt.BidirDecoder)
+if opt.cuda:
+    MORAN = MORAN(nc, nclass, opt.nh, opt.targetH, opt.targetW, BidirDecoder=opt.BidirDecoder, CUDA=opt.cuda)
+else:
+    MORAN = MORAN(nc, nclass, opt.nh, opt.targetH, opt.targetW, BidirDecoder=opt.BidirDecoder, inputDataType='torch.FloatTensor', CUDA=opt.cuda)
 
 if opt.MORAN != '':
     print('loading pretrained model from %s' % opt.MORAN)
-    state_dict = torch.load(opt.MORAN)
+    if opt.cuda:
+        state_dict = torch.load(opt.MORAN)
+    else:
+        state_dict = torch.load(opt.MORAN, map_location='cpu')
     MORAN_state_dict_rename = OrderedDict()
     for k, v in state_dict.items():
         name = k.replace("module.", "") # remove `module.`

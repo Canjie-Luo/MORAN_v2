@@ -27,7 +27,7 @@ class strLabelConverterForAttention(object):
             self.dict[item] = i
 
     def scan(self, text):
-        # print text
+        # print(text)
         text_tmp = text
         text = []
         for i in range(len(text_tmp)):
@@ -42,7 +42,7 @@ class strLabelConverterForAttention(object):
                         file_out_of_list = open("out_of_list.txt", "a+")
                         file_out_of_list.write(chara + "\n")
                         file_out_of_list.close()
-                        print "\" %s \" is not in alphabet..." % chara
+                        print('" %s " is not in alphabet...' % chara)
                         continue
                 else:
                     text_result += chara

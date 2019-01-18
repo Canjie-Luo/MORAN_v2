@@ -29,6 +29,8 @@ MORAN is a network with rectification mechanism for general scene text recogniti
 
 (Welcome to develop MORAN together.)
 
+We recommend you to use [Anaconda]() to manage your libraries.
+
 - [Python2 or Python3](https://www.python.org/) (Python3 is faster than Python2)
 - [PyTorch](https://pytorch.org/) 0.3.*
 - [TorchVision](https://pypi.org/project/torchvision/)
@@ -38,7 +40,7 @@ MORAN is a network with rectification mechanism for general scene text recogniti
 - [LMDB](https://pypi.org/project/lmdb/)
 - [matplotlib](https://pypi.org/project/matplotlib/)
 
-Use [pip](https://pypi.org/project/pip/) to install the libraries.
+Or use [pip](https://pypi.org/project/pip/) to install the libraries. (Maybe the torch is different from the anaconda version. Please check carefully and fix the warnings in training stage if necessary.)
 
 ```bash
     pip install -r requirements.txt

@@ -25,21 +25,20 @@ MORAN is a network with rectification mechanism for general scene text recogniti
 
 (Welcome to develop MORAN together.)
 
+- [Python2 or Python3](https://www.python.org/) (Python3 is faster than Python2)
 - [PyTorch](https://pytorch.org/) 0.3.*
 - [TorchVision](https://pypi.org/project/torchvision/)
-- [Python](https://www.python.org/) 2.7.*
-- [OpenCV](https://opencv.org/) 2.4.*
+- [OpenCV](https://opencv.org/)
 - [PIL (Pillow)](https://pillow.readthedocs.io/en/stable/#)
+- [Colour](https://pypi.org/project/colour/)
+- [LMDB](https://pypi.org/project/lmdb/)
+- [matplotlib](https://pypi.org/project/matplotlib/)
 
-Use [pip](https://pypi.org/project/pip/) to install the following libraries.
+Use [pip](https://pypi.org/project/pip/) to install the libraries.
 
 ```bash
     pip install -r requirements.txt
 ```
-
-- [Colour](https://pypi.org/project/colour/)
-- [LMDB](https://pypi.org/project/lmdb/)
-- [matplotlib](https://pypi.org/project/matplotlib/)
 
 ## Data Preparation
 Please convert your own dataset to **LMDB** format by using the [tool](https://github.com/bgshih/crnn/blob/master/tool/create_dataset.py) provided by [@Baoguang Shi](https://github.com/bgshih). 

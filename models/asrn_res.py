@@ -73,7 +73,6 @@ class Attention(nn.Module):
         self.generator = nn.Linear(hidden_size, num_classes)
         self.char_embeddings = Parameter(torch.randn(num_classes+1, num_embeddings))
         self.num_embeddings = num_embeddings
-        self.processed_batches = 0
         self.num_classes = num_classes
         self.cuda = CUDA
 
@@ -93,8 +92,6 @@ class Attention(nn.Module):
 
         if not test:
 
-            self.processed_batches = self.processed_batches + 1
-
             targets = torch.zeros(nB, num_steps+1).long()
             if self.cuda:
                 targets = targets.cuda()
@@ -107,21 +104,11 @@ class Attention(nn.Module):
 
             output_hiddens = Variable(torch.zeros(num_steps, nB, hidden_size).type_as(feats.data))
             hidden = Variable(torch.zeros(nB,hidden_size).type_as(feats.data))
-            max_locs = torch.zeros(num_steps, nB)
-            max_vals = torch.zeros(num_steps, nB)
 
             for i in range(num_steps):
                 cur_embeddings = self.char_embeddings.index_select(0, targets[i])
                 hidden, alpha = self.attention_cell(hidden, feats, cur_embeddings, test)
                 output_hiddens[i] = hidden
-                if self.processed_batches % 500 == 0:
-                    max_val, max_loc = alpha.data.max(1)
-                    max_locs[i] = max_loc.cpu()
-                    max_vals[i] = max_val.cpu()
-
-            if self.processed_batches % 500 == 0:
-                print('max_locs', list(max_locs[0:text_length.data[0],0]))
-                print('max_vals', list(max_vals[0:text_length.data[0],0]))
 
             new_hiddens = Variable(torch.zeros(num_labels, hidden_size).type_as(feats.data))
             b = 0

@@ -29,7 +29,7 @@ MORAN is a network with rectification mechanism for general scene text recogniti
 
 (Welcome to develop MORAN together.)
 
-We recommend you to use [Anaconda]() to manage your libraries.
+We recommend you to use [Anaconda](https://www.anaconda.com/) to manage your libraries.
 
 - [Python2 or Python3](https://www.python.org/) (Python3 is faster than Python2)
 - [PyTorch](https://pytorch.org/) 0.3.*

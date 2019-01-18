@@ -13,17 +13,17 @@ alphabet = '0:1:2:3:4:5:6:7:8:9:a:b:c:d:e:f:g:h:i:j:k:l:m:n:o:p:q:r:s:t:u:v:w:x:
 
 cuda_flag = False
 if torch.cuda.is_available():
-	cuda_flag = True
-	MORAN = MORAN(1, len(alphabet.split(':')), 256, 32, 100, BidirDecoder=True, CUDA=cuda_flag)
-	MORAN = MORAN.cuda()
+    cuda_flag = True
+    MORAN = MORAN(1, len(alphabet.split(':')), 256, 32, 100, BidirDecoder=True, CUDA=cuda_flag)
+    MORAN = MORAN.cuda()
 else:
-	MORAN = MORAN(1, len(alphabet.split(':')), 256, 32, 100, BidirDecoder=True, inputDataType='torch.FloatTensor', CUDA=cuda_flag)
+    MORAN = MORAN(1, len(alphabet.split(':')), 256, 32, 100, BidirDecoder=True, inputDataType='torch.FloatTensor', CUDA=cuda_flag)
 
 print('loading pretrained model from %s' % model_path)
 if cuda_flag:
-	state_dict = torch.load(model_path)
+    state_dict = torch.load(model_path)
 else:
-	state_dict = torch.load(model_path, map_location='cpu')
+    state_dict = torch.load(model_path, map_location='cpu')
 MORAN_state_dict_rename = OrderedDict()
 for k, v in state_dict.items():
     name = k.replace("module.", "") # remove `module.`

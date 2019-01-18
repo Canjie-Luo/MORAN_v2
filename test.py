@@ -9,4 +9,4 @@ text_rev = text
 length = Variable(torch.LongTensor([2]))
 output = MORAN(input_data, length, text, text_rev, test=True)
 for i in output:
-	print(i.size())
+    print(i.size())

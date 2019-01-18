@@ -2,3 +2,4 @@ Colour
 LMDB
 matplotlib
 torch
+torchvision

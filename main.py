@@ -254,7 +254,7 @@ for epoch in range(opt.niter):
         
         if i % opt.displayInterval == 0:
             t1 = time.time()            
-            print ('Epoch: %d/%d; iter: %d/%d; Loss: %.2f; time: %.2f s;' %
+            print ('Epoch: %d/%d; iter: %d/%d; Loss: %f; time: %.2f s;' %
                     (epoch, opt.niter, i, len(train_loader), loss_avg.val(), t1-t0)),
             loss_avg.reset()
             t0 = time.time()

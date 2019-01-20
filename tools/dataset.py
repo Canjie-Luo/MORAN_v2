@@ -52,7 +52,7 @@ class lmdbDataset(Dataset):
                 return self[index + 1]
 
             label_key = 'label-%09d' % index
-            label = str(txn.get(label_key.encode()))
+            label = str(txn.get(label_key.encode()).decode('utf-8'))
 
             label = ''.join(label[i] if label[i].lower() in self.alphabet else '' 
                 for i in range(len(label)))

@@ -45,6 +45,8 @@ parser.add_argument('--BidirDecoder', action='store_true', help='Whether to use 
 opt = parser.parse_args()
 print(opt)
 
+assert opt.ngpu == 1, "Multi-GPU training is not supported yet, due to the variant lengths of the text in a batch."
+
 if opt.experiment is None:
     opt.experiment = 'expr'
 os.system('mkdir {0}'.format(opt.experiment))

@@ -38,7 +38,7 @@ Thanks for the great help from [@Christian Clauss](https://github.com/cclauss)!
 We recommend you to use [Anaconda](https://www.anaconda.com/) to manage your libraries.
 
 - [Python 2.7 or Python 3.6](https://www.python.org/) (Python 3 is faster than Python 2)
-- [PyTorch](https://pytorch.org/) 0.3.*
+- [PyTorch](https://pytorch.org/) 0.3.* (`Higher version causes slow training, please ref to` [issue#8](https://github.com/Canjie-Luo/MORAN_v2/issues/8#issuecomment-455416756))
 - [TorchVision](https://pypi.org/project/torchvision/)
 - [OpenCV](https://opencv.org/)
 - [PIL (Pillow)](https://pillow.readthedocs.io/en/stable/#)
@@ -57,7 +57,9 @@ Please convert your own dataset to **LMDB** format by using the [tool](https://g
 
 You can also download the training ([NIPS 2014](http://www.robots.ox.ac.uk/~vgg/data/text/), [CVPR 2016](http://www.robots.ox.ac.uk/~vgg/data/scenetext/)) and testing datasets prepared by us. 
 
-- [about 20G training datasets and testing datasets in **LMDB** format](https://pan.baidu.com/s/1TqZfvoEhyv57yf4YBjSzFg), password: l8em
+- [BaiduCloud (about 20G training datasets and testing datasets in **LMDB** format)](https://pan.baidu.com/s/1TqZfvoEhyv57yf4YBjSzFg), password: l8em
+- [Google Drive (testing datasets in **LMDB** format)](https://drive.google.com/open?id=1NAs78a38xkl1MhodoD7BM0Lh3v_sFwYs)
+- [OneDrive (testing datasets in **LMDB** format)](https://1drv.ms/f/s!Am3wqyDHs7r0hkHUYy0edaC2UC3c)
 
 The raw pictures of testing datasets can be found [here](https://github.com/chengzhanzhan/STR).
 
@@ -76,12 +78,13 @@ And start training: (manually decrease the learning rate for your task)
 ```bash
 	sh train_MORAN.sh
 ```
+- The training process should take **less than 20s** for 100 iterations on a 1080Ti.
 
 ## Demo
 
 Download the model parameter file `demo.pth`.
 
-- [BaiduYun](https://pan.baidu.com/s/1TqZfvoEhyv57yf4YBjSzFg) (password: l8em)
+- [BaiduCloud](https://pan.baidu.com/s/1TqZfvoEhyv57yf4YBjSzFg) (password: l8em)
 - [Google Drive](https://drive.google.com/file/d/1IDvT51MXKSseDq3X57uPjOzeSYI09zip/view?usp=sharing)
 - [OneDrive](https://1drv.ms/u/s!Am3wqyDHs7r0hkAl0AtRIODcqOV3)
 

@@ -6,7 +6,7 @@
 | :---: | :---: |
 | <center>[![Build Status](https://travis-ci.org/Canjie-Luo/MORAN_v2.svg?branch=master)](https://travis-ci.org/Canjie-Luo/MORAN_v2)</center> | <center>[![Build Status](https://travis-ci.org/Canjie-Luo/MORAN_v2.svg?branch=master)](https://travis-ci.org/Canjie-Luo/MORAN_v2)</center> |
 
-MORAN is a network with rectification mechanism for general scene text recognition. The paper (accepted to appear in Pattern Recognition, 2019) in [arXiv](https://arxiv.org/abs/1901.03003), [online](https://www.sciencedirect.com/science/article/pii/S0031320319300263?via%3Dihub) version is available now.
+MORAN is a network with rectification mechanism for general scene text recognition. The paper (accepted to appear in Pattern Recognition, 2019) in [arXiv](https://arxiv.org/abs/1901.03003), [final](https://www.sciencedirect.com/science/article/pii/S0031320319300263) version is available now.
 
 [Here is a brief introduction in Chinese.](https://mp.weixin.qq.com/s/XbT_t_9C__KdyCCw8CGDVA)
 

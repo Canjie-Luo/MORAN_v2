@@ -100,13 +100,13 @@ Put it into root folder. Then, execute the `demo.py` for more visualizations.
 
 ```
 @article{cluo2019moran,
-  author  = {Canjie Luo, Lianwen Jin, Zenghui Sun},
-  title   = {MORAN: A Multi-Object Rectified Attention Network for Scene Text Recognition},
-  journal = {Pattern Recognition}, 
-  volume  = {}, 
-  number  = {}, 
-  pages   = {},
-  year    = {2019}, 
+  author    = {Canjie Luo and Lianwen Jin and Zenghui Sun},
+  title     = {MORAN: A Multi-Object Rectified Attention Network for Scene Text Recognition},
+  journal   = {Pattern Recognition}, 
+  volume    = {90}, 
+  pages     = {109--118},
+  year      = {2019},
+  publisher = {Elsevier}
 }
 ```
 

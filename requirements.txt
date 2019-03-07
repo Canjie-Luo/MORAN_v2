@@ -4,4 +4,4 @@ matplotlib
 Pillow
 opencv-python
 torch==0.3.1
-torchvision
+torchvision==0.2.1

@@ -23,7 +23,6 @@ class strLabelConverterForAttention(object):
 
         self.dict = {}
         for i, item in enumerate(self.alphabet):
-            # NOTE: 0 is reserved for 'blank' required by wrap_ctc
             self.dict[item] = i
 
     def scan(self, text):

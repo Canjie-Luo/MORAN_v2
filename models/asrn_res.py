@@ -46,11 +46,11 @@ class AttentionCell(nn.Module):
         prev_hidden_proj = self.h2h(prev_hidden).view(1,nB, hidden_size).expand(nT, nB, hidden_size).contiguous().view(-1, hidden_size)
         emition = self.score(F.tanh(feats_proj + prev_hidden_proj).view(-1, hidden_size)).view(nT,nB)
 
-        alpha = F.softmax(emition, 0) # nB * nT
+        alpha = F.softmax(emition, 0) # nT * nB
 
         if not test:
-            alpha_fp = self.fracPickup(alpha.unsqueeze(1).unsqueeze(2)).squeeze()
-            context = (feats * alpha_fp.view(nT,nB,1).expand(nT, nB, nC)).sum(0).squeeze(0) # nB * nC
+            alpha_fp = self.fracPickup(alpha.transpose(0,1).contiguous().unsqueeze(1).unsqueeze(2)).squeeze()
+            context = (feats * alpha_fp.transpose(0,1).contiguous().view(nT,nB,1).expand(nT, nB, nC)).sum(0).squeeze(0) # nB * nC
             if len(context.size()) == 1:
                 context = context.unsqueeze(0)
             context = torch.cat([context, cur_embeddings], 1)

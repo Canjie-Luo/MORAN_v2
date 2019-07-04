@@ -134,4 +134,17 @@ class averager(object):
         return res
 
 def loadData(v, data):
-    v.data.resize_(data.size()).copy_(data)
+    major, _ = get_torch_version()
+
+    if major >= 1:
+        v.resize_(data.size()).copy_(data)
+    else:
+        v.data.resize_(data.size()).copy_(data)
+
+def get_torch_version():
+    """
+    Find pytorch version and return it as integers
+    for major and minor versions
+    """
+    torch_version = str(torch.__version__).split(".")
+    return int(torch_version[0]), int(torch_version[1])
